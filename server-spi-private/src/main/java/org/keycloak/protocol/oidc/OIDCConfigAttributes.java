@@ -60,6 +60,7 @@ public final class OIDCConfigAttributes {
     public static final String CLIENT_SESSION_IDLE_TIMEOUT = "client.session.idle.timeout";
     public static final String CLIENT_SESSION_MAX_LIFESPAN = "client.session.max.lifespan";
     public static final String CLIENT_OFFLINE_SESSION_IDLE_TIMEOUT = "client.offline.session.idle.timeout";
+    public static final String CLIENT_OFFLINE_SESSION_MAX_LIFESPAN_LIMITED = "client.offline.session.max.lifespan.limited";
     public static final String CLIENT_OFFLINE_SESSION_MAX_LIFESPAN = "client.offline.session.max.lifespan";
     public static final String PKCE_CODE_CHALLENGE_METHOD = "pkce.code.challenge.method";
 
@@ -68,7 +69,7 @@ public final class OIDCConfigAttributes {
     public static final String BACKCHANNEL_LOGOUT_URL = "backchannel.logout.url";
 
     public static final String BACKCHANNEL_LOGOUT_SESSION_REQUIRED = "backchannel.logout.session.required";
-    
+
     public static final String BACKCHANNEL_LOGOUT_REVOKE_OFFLINE_TOKENS = "backchannel.logout.revoke.offline.tokens";
 
     public static final String USE_REFRESH_TOKEN_FOR_CLIENT_CREDENTIALS_GRANT = "client_credentials.use_refresh_token";
@@ -77,7 +78,7 @@ public final class OIDCConfigAttributes {
 
     public static final String USE_LOWER_CASE_IN_TOKEN_RESPONSE = "token.response.type.bearer.lower-case";
 
-    public static final String ID_TOKEN_AS_DETACHED_SIGNATURE  = "id.token.as.detached.signature";
+    public static final String ID_TOKEN_AS_DETACHED_SIGNATURE = "id.token.as.detached.signature";
 
     public static final String AUTHORIZATION_SIGNED_RESPONSE_ALG = "authorization.signed.response.alg";
     public static final String AUTHORIZATION_ENCRYPTED_RESPONSE_ALG = "authorization.encrypted.response.alg";

@@ -192,6 +192,53 @@ export const AdvancedSettings = ({
               )}
             />
           </FormGroup>
+          <FormGroup
+            label={t("keyForCodeExchange")}
+            fieldId="keyForCodeExchange"
+            hasNoPaddingTop
+            labelIcon={
+              <HelpItem
+                helpText={t("keyForCodeExchangeHelp")}
+                fieldLabelId="keyForCodeExchange"
+              />
+            }
+          >
+            <Controller
+              name={convertAttributeNameToForm<FormFields>(
+                "attributes.client.offline.session.max.lifespan.limited",
+              )}
+              defaultValue=""
+              control={control}
+              render={({ field }) => (
+                <Select
+                  toggleId="offlineSessionMaxLimitedOverride"
+                  variant={SelectVariant.single}
+                  onToggle={(_event, val) => setOpen(val)}
+                  isOpen={open}
+                  onSelect={(_, value) => {
+                    field.onChange(value);
+                    setOpen(false);
+                  }}
+                  selections={[field.value || t("inheritedSettings")]}
+                >
+                  <SelectList>
+                    <SelectOption value="">
+                      {" "}
+                      {t("inheritedSettings")}
+                    </SelectOption>
+                    <SelectOption value="">
+                      {" "}
+                      {t("inheritedSettings")}
+                    </SelectOption>
+                    <SelectOption value="">
+                      {" "}
+                      {t("inheritedSettings")}
+                    </SelectOption>
+                  </SelectList>
+                </Select>
+              )}
+            />
+          </FormGroup>
           <DefaultSwitchControl
             name={convertAttributeNameToForm<FormFields>(
               "attributes.require.pushed.authorization.requests",

@@ -214,4 +214,18 @@ public class SessionExpirationUtils {
         }
         return -1;
     }
+
+    public static boolean isOfflineSessionMaxLifetimeLimited(ClientModel client, RealmModel realm) {
+        if (client == null)
+            throw new IllegalArgumentException("Client can't be null");
+        if (realm == null)
+            throw new IllegalArgumentException("Realm can't be null");
+
+        final String clientOfflineSessionMaxLimitedOverride = client
+            .getAttribute(OIDCConfigAttributes.CLIENT_OFFLINE_SESSION_MAX_LIFESPAN_LIMITED);
+        if (StringUtil.isNotBlank(clientOfflineSessionMaxLimitedOverride))
+            return Boolean.parseBoolean(clientOfflineSessionMaxLimitedOverride);
+        else
+            return realm.isOfflineSessionMaxLifespanEnabled();
+    }
 }

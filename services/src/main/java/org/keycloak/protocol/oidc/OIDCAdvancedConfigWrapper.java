@@ -413,4 +413,15 @@ public class OIDCAdvancedConfigWrapper extends AbstractClientConfigWrapper {
         setAttributeMultivalued(OIDCConfigAttributes.POST_LOGOUT_REDIRECT_URIS, postLogoutRedirectUris);
     }
 
+    public boolean isClientOfflineSessionMaxLifetimeLimited() {
+        String clientOfflineSessionMaxLifetimeLimited = getAttribute(
+            OIDCConfigAttributes.CLIENT_OFFLINE_SESSION_MAX_LIFESPAN_LIMITED);
+        return Boolean.parseBoolean(clientOfflineSessionMaxLifetimeLimited);
+    }
+
+    public void setClientOfflineSessionMaxLifetimeLimited(boolean clientOfflineSessionMaxLifetimeLimited) {
+        String val = String.valueOf(clientOfflineSessionMaxLifetimeLimited);
+        setAttribute(OIDCConfigAttributes.CLIENT_OFFLINE_SESSION_MAX_LIFESPAN_LIMITED, val);
+    }
+
 }
