@@ -92,7 +92,7 @@ export const TimeSelector = ({
   useEffect(() => {
     const multiplier = getTimeUnit(times, value).multiplier;
 
-    if (value) {
+    if (value || (value != undefined && value > -1)) {
       setMultiplier(multiplier);
       setTimeValue(value / multiplier);
       setLastMultiplier(multiplier);

@@ -2286,6 +2286,17 @@ public class RealmAdapter implements StorageProviderRealmModel, JpaModel<RealmEn
                 .executeUpdate();
     }
 
+    @Override
+    public int getWellKnownEndpointCacheDuration() {
+        return realm.getGetWellKnownEndpointCacheDuration();
+    }
+
+    @Override
+    public void setWellKnownEndpointCacheDuration(int seconds) {
+        realm.setGetWellKnownEndpointCacheDuration(seconds);
+        em.flush();
+    }
+
     private ClientInitialAccessModel entityToModel(ClientInitialAccessEntity entity) {
         ClientInitialAccessModel model = new ClientInitialAccessModel();
         model.setId(entity.getId());

@@ -839,6 +839,7 @@ public class DefaultExportImportManager implements ExportImportManager {
         if (rep.isAdminEventsEnabled() != null) realm.setAdminEventsEnabled(rep.isAdminEventsEnabled());
         if (rep.isAdminEventsDetailsEnabled() != null)
             realm.setAdminEventsDetailsEnabled(rep.isAdminEventsDetailsEnabled());
+        realm.setWellKnownEndpointCacheDuration(rep.getWellKnownEndpointCacheDuration());
 
 
         if (rep.getPasswordPolicy() != null)

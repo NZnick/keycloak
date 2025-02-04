@@ -37,6 +37,7 @@ import {
 import useIsFeatureEnabled, { Feature } from "../utils/useIsFeatureEnabled";
 import { UIRealmRepresentation } from "./RealmSettingsTabs";
 import { SIGNATURE_ALGORITHMS } from "../clients/add/SamlSignature";
+import { TimeSelector } from "../components/time-selector/TimeSelector";
 
 type RealmSettingsGeneralTabProps = {
   realm: UIRealmRepresentation;
@@ -271,6 +272,32 @@ function RealmSettingsGeneralTabForm({
               ...SIGNATURE_ALGORITHMS.map((v) => ({ key: v, value: v })),
             ]}
           />
+          <FormGroup
+            label={t("wellKnownEndpointCacheDuration")}
+            fieldId="wellKnownEndpointCacheDuration"
+            labelIcon={
+              <HelpItem
+                helpText={t("wellKnownEndpointCacheDurationHelpText")}
+                fieldLabelId="wellKnownEndpointCacheDuration"
+              />
+            }
+          >
+            <Controller
+              name="wellKnownEndpointCacheDuration"
+              defaultValue={realm.wellKnownEndpointCacheDuration}
+              control={control}
+              render={({ field }) => (
+                <TimeSelector
+                  name="wellKnownEndpointCacheDuration"
+                  className="kc-well-known-endpoint-cache-duration"
+                  data-testid="kc-well-known-endpoint-cache-duration"
+                  value={field.value}
+                  onChange={field.onChange}
+                  units={["minute", "hour", "day"]}
+                />
+              )}
+            />
+          </FormGroup>
           <FormGroup
             label={t("endpoints")}
             labelIcon={

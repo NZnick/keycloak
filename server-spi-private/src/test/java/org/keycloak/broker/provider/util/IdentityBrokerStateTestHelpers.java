@@ -1795,6 +1795,16 @@ public class IdentityBrokerStateTestHelpers {
         }
 
         @Override
+        public int getWellKnownEndpointCacheDuration() {
+            return 0;
+        }
+
+        @Override
+        public void setWellKnownEndpointCacheDuration(int seconds) {
+
+        }
+
+        @Override
         public Stream<RequiredActionConfigModel> getRequiredActionConfigsStream() {
             return Stream.empty();
         }

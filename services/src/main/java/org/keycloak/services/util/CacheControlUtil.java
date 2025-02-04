@@ -57,5 +57,17 @@ public class CacheControlUtil {
         return cacheControl;
     }
 
+    public static CacheControl getCacheControlForDuration(int duration){
+
+        CacheControl cacheControl = new CacheControl();
+        cacheControl.setMustRevalidate(true);
+        if (duration > 0) {
+            cacheControl.setMaxAge(duration);
+        } else {
+            cacheControl.setNoCache(true);
+        }
+        return cacheControl;
+    }
+
 
 }

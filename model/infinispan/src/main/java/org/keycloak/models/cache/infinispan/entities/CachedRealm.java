@@ -170,6 +170,7 @@ public class CachedRealm extends AbstractExtendableRevisioned {
     protected boolean internationalizationEnabled;
     protected Set<String> supportedLocales;
     protected String defaultLocale;
+    protected int wellKnownEndpointCacheDuration;
 
     protected Map<String, String> attributes;
 
@@ -259,6 +260,8 @@ public class CachedRealm extends AbstractExtendableRevisioned {
         adminEventsEnabled = model.isAdminEventsEnabled();
         adminEventsDetailsEnabled = model.isAdminEventsDetailsEnabled();
         adminPermissionsClientId = model.getAdminPermissionsClient() == null ? null : model.getAdminPermissionsClient().getId();
+
+        wellKnownEndpointCacheDuration = model.getWellKnownEndpointCacheDuration();
 
         if(Objects.isNull(model.getDefaultRole())) {
             throw new ModelException("Default Role is null for Realm " + name);
@@ -549,6 +552,8 @@ public class CachedRealm extends AbstractExtendableRevisioned {
     public int getActionTokenGeneratedByUserLifespan() {
         return actionTokenGeneratedByUserLifespan;
     }
+
+    public int getWellKnownEndpointCacheDuration() { return wellKnownEndpointCacheDuration; }
 
     /**
      * This method is supposed to return user lifespan based on the action token ID

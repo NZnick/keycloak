@@ -1825,6 +1825,18 @@ public class RealmAdapter implements CachedRealmModel {
     }
 
     @Override
+    public int getWellKnownEndpointCacheDuration() {
+        if(isUpdated()) return updated.getWellKnownEndpointCacheDuration();
+        return cached.getWellKnownEndpointCacheDuration();
+    }
+
+    @Override
+    public void setWellKnownEndpointCacheDuration(int seconds) {
+        getDelegateForUpdate();
+        updated.setWellKnownEndpointCacheDuration(seconds);
+    }
+
+    @Override
     public String toString() {
         return String.format("%s@%08x", getId(), hashCode());
     }

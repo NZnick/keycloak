@@ -848,4 +848,7 @@ public interface RealmModel extends RoleContainerModel {
     void removeClientInitialAccessModel(String id);
     Stream<ClientInitialAccessModel> getClientInitialAccesses();
     void decreaseRemainingCount(ClientInitialAccessModel clientInitialAccess);
+
+    int getWellKnownEndpointCacheDuration();
+    void setWellKnownEndpointCacheDuration(int seconds);
 }

@@ -226,7 +226,8 @@ public class RealmsResource {
     public Response getWellKnown(final @PathParam("realm") String name,
                                  final @PathParam("alias") String alias) {
         resolveRealmAndUpdateSession(name);
-        checkSsl(session.getContext().getRealm());
+        RealmModel realm = session.getContext().getRealm();
+        checkSsl(realm);
 
         WellKnownProviderFactory wellKnownProviderFactoryFound = session.getKeycloakSessionFactory().getProviderFactoriesStream(WellKnownProvider.class)
                 .map(providerFactory -> (WellKnownProviderFactory) providerFactory)
@@ -239,7 +240,8 @@ public class RealmsResource {
         WellKnownProvider wellKnown = session.getProvider(WellKnownProvider.class, wellKnownProviderFactoryFound.getId());
 
         if (wellKnown != null) {
-            ResponseBuilder responseBuilder = Response.ok(wellKnown.getConfig()).cacheControl(CacheControlUtil.noCache());
+            int cacheDuration = realm.getWellKnownEndpointCacheDuration();
+            ResponseBuilder responseBuilder = Response.ok(wellKnown.getConfig()).cacheControl(CacheControlUtil.getCacheControlForDuration(cacheDuration));
             return Cors.builder().allowedOrigins("*").auth().add(responseBuilder);
         }
 

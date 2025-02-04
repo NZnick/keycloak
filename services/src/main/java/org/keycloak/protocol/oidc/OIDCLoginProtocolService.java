@@ -202,7 +202,8 @@ public class OIDCLoginProtocolService {
 
         JSONWebKeySet keySet = JWKSServerUtils.getRealmJwks(session, realm);
 
-        Response.ResponseBuilder responseBuilder = Response.ok(keySet).cacheControl(CacheControlUtil.getDefaultCacheControl());
+        int cacheDuration = realm.getWellKnownEndpointCacheDuration();
+        Response.ResponseBuilder responseBuilder = Response.ok(keySet).cacheControl(CacheControlUtil.getCacheControlForDuration(cacheDuration));
         return Cors.builder().allowedOrigins("*").auth().add(responseBuilder);
     }
 

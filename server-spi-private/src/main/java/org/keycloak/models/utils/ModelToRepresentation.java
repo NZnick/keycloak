@@ -546,6 +546,7 @@ public class ModelToRepresentation {
         rep.setInternationalizationEnabled(realm.isInternationalizationEnabled());
         rep.setSupportedLocales(realm.getSupportedLocalesStream().collect(Collectors.toSet()));
         rep.setDefaultLocale(realm.getDefaultLocale());
+        rep.setWellKnownEndpointCacheDuration(realm.getWellKnownEndpointCacheDuration());
         if (internal) {
             exportAuthenticationFlows(session, realm, rep);
             exportRequiredActions(realm, rep);

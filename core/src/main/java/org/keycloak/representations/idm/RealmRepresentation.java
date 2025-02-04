@@ -222,6 +222,8 @@ public class RealmRepresentation {
     protected Boolean verifiableCredentialsEnabled;
 
     protected Boolean adminPermissionsEnabled;
+    
+    private int wellKnownEndpointCacheDuration;
 
     @Deprecated
     protected Boolean social;
@@ -1487,6 +1489,14 @@ public class RealmRepresentation {
             organizations = new ArrayList<>();
         }
         organizations.add(org);
+    }
+
+    public int getWellKnownEndpointCacheDuration() {
+        return wellKnownEndpointCacheDuration;
+    }
+
+    public void setWellKnownEndpointCacheDuration(int wellKnownEndpointCacheDuration) {
+        this.wellKnownEndpointCacheDuration = wellKnownEndpointCacheDuration;
     }
 
     public enum BruteForceStrategy {

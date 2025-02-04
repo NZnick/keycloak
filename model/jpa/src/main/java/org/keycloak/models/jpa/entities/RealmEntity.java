@@ -232,6 +232,9 @@ public class RealmEntity {
     @Column(name="ALLOW_USER_MANAGED_ACCESS")
     private boolean allowUserManagedAccess;
 
+    @Column(name="WELL_KNOWN_ENDPOINT_CACHE_DURATION", nullable = false )
+    private int getWellKnownEndpointCacheDuration;
+
     @OneToMany(cascade ={CascadeType.REMOVE}, orphanRemoval = true, mappedBy = "realm")
     @MapKey(name="locale")
     Map<String, RealmLocalizationTextsEntity> realmLocalizationTexts = new HashMap<>();
@@ -820,6 +823,12 @@ public class RealmEntity {
     @Override
     public int hashCode() {
         return id.hashCode();
+    }
+
+    public int getGetWellKnownEndpointCacheDuration() { return getWellKnownEndpointCacheDuration; }
+
+    public void setGetWellKnownEndpointCacheDuration(int getWellKnownEndpointCacheDuration) {
+        this.getWellKnownEndpointCacheDuration = getWellKnownEndpointCacheDuration;
     }
 }
 

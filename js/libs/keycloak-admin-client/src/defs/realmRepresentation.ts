@@ -129,6 +129,7 @@ export default interface RealmRepresentation {
   users?: UserRepresentation[];
   verifyEmail?: boolean;
   waitIncrementSeconds?: number;
+  wellKnownEndpointCacheDuration?: number;
 }
 
 export type PartialImportRealmRepresentation = RealmRepresentation & {

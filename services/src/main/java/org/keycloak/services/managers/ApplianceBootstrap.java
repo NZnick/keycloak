@@ -95,6 +95,7 @@ public class ApplianceBootstrap {
         realm.setSslRequired(SslRequired.EXTERNAL);
         realm.setRegistrationAllowed(false);
         realm.setRegistrationEmailAsUsername(false);
+        realm.setWellKnownEndpointCacheDuration(0);
 
         session.getContext().setRealm(realm);
         DefaultKeyProviders.createProviders(realm);

@@ -1133,6 +1133,16 @@ public class RealmModelDelegate implements RealmModel {
         delegate.decreaseRemainingCount(clientInitialAccess);
     }
 
+    @Override
+    public int getWellKnownEndpointCacheDuration() {
+        return delegate.getWellKnownEndpointCacheDuration();
+    }
+
+    @Override
+    public void setWellKnownEndpointCacheDuration(int seconds) {
+        delegate.setWellKnownEndpointCacheDuration(seconds);
+    }
+
     public RoleModel getRole(String name) {
         return delegate.getRole(name);
     }
